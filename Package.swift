@@ -5,6 +5,17 @@ import PackageDescription
 
 let SCADE_SDK = ProcessInfo.processInfo.environment["SCADE_SDK"] ?? ""
 
+let swiftSettings: [SwiftSetting] = [
+    .unsafeFlags(["-F", SCADE_SDK], .when(platforms: [.macOS, .iOS])),
+    .unsafeFlags(["-I", "\(SCADE_SDK)/include"], .when(platforms: [.android]))
+]
+
+
+let linkerSettings: [LinkerSetting] = [
+    .unsafeFlags(["-F", SCADE_SDK], .when(platforms: [.macOS, .iOS]))
+]
+
+
 let package = Package(
     name: "ScadeFoundation",
     
@@ -15,6 +26,7 @@ let package = Package(
     products: [
         .library(
             name: "ScadeFoundation",
+            type: .dynamic,            
             targets: ["ScadeFoundation"]),
     ],
     
@@ -25,36 +37,32 @@ let package = Package(
             name: "ScadeFoundation",
             dependencies: [],
             path: "Sources/Foundation",
-            swiftSettings: [
-                .unsafeFlags(["-F", SCADE_SDK], .when(platforms: [.macOS, .iOS])),
-                .unsafeFlags(["-I", "\(SCADE_SDK)/include"], .when(platforms: [.android]))]
+            swiftSettings: swiftSettings,
+            linkerSettings: linkerSettings
         ),
         
         .target(
             name: "ScadeCore",
             dependencies: [],
             path: "Sources/Core",
-            swiftSettings: [
-                .unsafeFlags(["-F", SCADE_SDK], .when(platforms: [.macOS, .iOS])),
-                .unsafeFlags(["-I", "\(SCADE_SDK)/include"], .when(platforms: [.android]))]
+            swiftSettings: swiftSettings,
+            linkerSettings: linkerSettings
         ),
          
         .target(
             name: "ScadeGraphics",
             dependencies: [],
             path: "Sources/Graphics",
-            swiftSettings: [
-                .unsafeFlags(["-F", SCADE_SDK], .when(platforms: [.macOS, .iOS])),
-                .unsafeFlags(["-I", "\(SCADE_SDK)/include"], .when(platforms: [.android]))]
+            swiftSettings: swiftSettings,
+            linkerSettings: linkerSettings
         ),
 
         .target(
             name: "ScadeUI",
             dependencies: [],
             path: "Sources/UI",
-            swiftSettings: [
-                .unsafeFlags(["-F", SCADE_SDK], .when(platforms: [.macOS, .iOS])),
-                .unsafeFlags(["-I", "\(SCADE_SDK)/include"], .when(platforms: [.android]))]
+            swiftSettings: swiftSettings,
+            linkerSettings: linkerSettings
         ),
                 
         .testTarget(
