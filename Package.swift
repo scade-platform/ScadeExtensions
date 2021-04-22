@@ -17,7 +17,7 @@ let linkerSettings: [LinkerSetting] = [
 
 
 let package = Package(
-    name: "ScadeFoundation",
+    name: "ScadeExtensions",
     
     platforms: [
         .macOS(.v10_14), .iOS(.v12)        
@@ -25,18 +25,17 @@ let package = Package(
     
     products: [
         .library(
-            name: "ScadeFoundation",
-            type: .dynamic,            
-            targets: ["ScadeFoundation"]),
+            name: "ScadeExtensions",                        
+            targets: ["ScadeExtensions"]),
     ],
     
     dependencies: [ ],
     
     targets: [
         .target(
-            name: "ScadeFoundation",
+            name: "ScadeExtensions",
             dependencies: [],
-            path: "Sources/Foundation",
+            path: "Sources/Extensions",
             swiftSettings: swiftSettings,
             linkerSettings: linkerSettings
         ),
@@ -63,10 +62,6 @@ let package = Package(
             path: "Sources/UI",
             swiftSettings: swiftSettings,
             linkerSettings: linkerSettings
-        ),
-                
-        .testTarget(
-            name: "ScadeFoundationTests",
-            dependencies: ["ScadeFoundation"]),
+        )
     ]
 )
