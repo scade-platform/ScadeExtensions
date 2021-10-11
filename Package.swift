@@ -26,7 +26,7 @@ let package = Package(
     products: [
         .library(
             name: "ScadeExtensions",                        
-            targets: ["ScadeExtensions"]),
+            targets: ["ScadeExtensions", "ScadeCore", "ScadeGraphics", "ScadeUI"]),
     ],
     
     dependencies: [ ],
