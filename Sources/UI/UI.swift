@@ -8,11 +8,11 @@ public extension SCDWidgetsWidget {
 
 public extension SCDWidgetsSliderLine {
 
-  var leftPart: SCDSvgRect? {
+  var backgroundLine: SCDSvgRect? {
     return svgWithTemplate(id: "node-line") as? SCDSvgRect
   }
 
-  var rightPart: SCDSvgRect? {
+  var foregroundLine: SCDSvgRect? {
     return svgWithTemplate(id: "node-fill") as? SCDSvgRect
   }
 
