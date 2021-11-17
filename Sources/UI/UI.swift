@@ -8,6 +8,11 @@ public extension SCDWidgetsWidget {
 
 public extension SCDWidgetsSliderLine {
 
+  func onSlide(_ handler: @escaping (SCDWidgetsSliderLineEvent) -> Void) {
+    let eventHandler = SCDWidgetsSliderLineEventHandler { handler($0!) }   
+    onSlide.append(eventHandler)
+  }
+
   var backgroundLine: SCDSvgRect? {
     return svgWithTemplate(id: "node-line") as? SCDSvgRect
   }
