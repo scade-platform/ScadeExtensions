@@ -29,7 +29,9 @@ let package = Package(
             targets: ["ScadeExtensions", "ScadeCore", "ScadeGraphics", "ScadeUI"]),
     ],
     
-    dependencies: [ ],
+    dependencies: [
+      .package(name: "Android", url: "git@github.com:FLORG1/swift-android.git", .branch("master")),
+    ],
     
     targets: [
         .target(
@@ -58,7 +60,9 @@ let package = Package(
 
         .target(
             name: "ScadeUI",
-            dependencies: [],
+            dependencies: [
+              .product(name: "AndroidApp", package: "Android", condition: .when(platforms: [.android])),
+            ],
             path: "Sources/UI",
             swiftSettings: swiftSettings,
             linkerSettings: linkerSettings
