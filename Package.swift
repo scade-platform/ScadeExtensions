@@ -30,7 +30,7 @@ let package = Package(
     ],
     
     dependencies: [
-      .package(name: "Android", url: "git@github.com:FLORG1/swift-android.git", .branch("master")),
+      .package(name: "Android", url: "https://github.com/scade-platform/swift-android.git", .branch("android/24")),
     ],
     
     targets: [
