@@ -20,7 +20,7 @@ let package = Package(
     name: "ScadeExtensions",
     
     platforms: [
-        .macOS(.v10_15), .iOS(.v12)        
+        .macOS(.v10_14), .iOS(.v12)        
     ],
     
     products: [
