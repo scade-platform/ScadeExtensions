@@ -2,6 +2,15 @@ import ScadeKit
 
 public extension SCDWidgetsSliderLine {
 
+  /// Create onSlide handler.
+  ///
+  /// ```
+  /// sliderLine.onSlide = { event in
+  ///   print("new value of slider: \(event?.newValue)")
+  /// }
+  /// ```
+  ///
+  /// - Parameter handler: The closure with  SCDWidgetsSliderLineEvent parameter.    
   func onSlide(_ handler: @escaping (SCDWidgetsSliderLineEvent) -> Void) {
     let eventHandler = SCDWidgetsSliderLineEventHandler { handler($0!) }   
     onSlide.append(eventHandler)
