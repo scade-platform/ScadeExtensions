@@ -14,10 +14,6 @@ public extension SCDWidgetsWidget {
   }
 
   var backgroundElement: SCDSvgElement? {
-    if let background = svgWithTemplate(id: "background") as? SCDSvgContainerElement,
-       !background.children.isEmpty {
-      return background.children[0]
-    }
-    return nil
+    return svgWithTemplate(id: "background")
   }
 }
