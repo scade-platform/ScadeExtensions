@@ -4,10 +4,12 @@ public extension SCDWidgetsContainer {
 
   /// Get child widget by name.
   ///
-  /// ```
-  /// (container["label"] as? SCDWidgetsLabel)?.text = "hello"
-  /// ```
-  /// - Parameter name: The name of child.
+  /// For example, to get SCDWidgetsLabel child with name equals to "label", use:
+  ///
+  ///   (container["label"] as? SCDWidgetsLabel)?.text = "hello"
+  ///
+  /// - Parameters:
+  ///   - name: The name of child widget.
   /// - Returns: A child widget with name `name`.
   subscript(name: String) -> SCDWidgetsWidget? {
     self.getWidgetByName(name)
@@ -15,6 +17,7 @@ public extension SCDWidgetsContainer {
 
   /// Get child widget by name and type.
   ///
+  /// For example, to get SCDWidgetsLabel child with name equals to "label", use:
   ///    container["label", as: SCDWidgetsLabel.self]?.text = "hello"
   ///
   /// - Parameters:
