@@ -4,14 +4,15 @@ public extension SCDWidgetsSlider {
 
   /// Create element provider for slider with items of type T.
   ///
-  /// ```
-  /// // Create provider for slider with String items:
-  /// slider.elementProvider = SCDWidgetsElementProvider { (text: String, elem) in
-  ///   (elem["label"] as? SCDWidgetsLabel)?.text = text
-  /// }
-  /// ```
+  /// For example, to create provider with String item and
+  /// element which contains SCDWidgetsLabel with name "label", use:
   ///
-  /// - Parameter closure: The closure with two paramateres of the current slider element: item and widget.
+  ///   slider.elementProvider = SCDWidgetsElementProvider { (text: String, element) in
+  ///     element["label", as: SCDWidgetsLabel.self]?.text = text
+  ///   }
+  ///
+  /// - Parameters:
+  ///   - closure: The closure with two paramateres of the current slider element: item and widget.
   func elementProvider<T>(_ clousure: @escaping (T, SCDWidgetsContainer) -> Void) {
     self.elementProvider = SCDWidgetsElementProvider(clousure)
   }
