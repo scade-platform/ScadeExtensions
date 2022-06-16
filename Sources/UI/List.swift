@@ -6,7 +6,7 @@ public extension SCDWidgetsList {
   ///
   /// For example, to create handler which prints selected item, use:
   ///
-  ///   list.onItemSelected = { event in
+  ///   list.onItemSelected { event in
   ///     print("on item selected: \(event?.item)")
   ///   }
   ///

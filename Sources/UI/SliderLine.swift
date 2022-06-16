@@ -6,7 +6,7 @@ public extension SCDWidgetsSliderLine {
   ///
   /// For example, to create handler which prints new value of slider line, use:
   /// 
-  ///   sliderLine.onSlide = { event in
+  ///   sliderLine.onSlide { event in
   ///     print("new value of slider: \(event?.newValue)")
   ///   }
   ///
