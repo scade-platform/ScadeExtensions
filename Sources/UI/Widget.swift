@@ -29,11 +29,11 @@ public extension SCDWidgetsWidget {
   }
 
   /// Background svg image of current widget.
-  var backgroundImage: SCDSvgImage? { self.backgroundElement as? SCDSvgImage }
+  var backgroundSvgImage: SCDSvgImage? { self.backgroundSvgElement as? SCDSvgImage }
 
   /// Background svg rect of current widget.
-  var backgroundRect: SCDSvgRect? { self.backgroundElement as? SCDSvgRect }
+  var backgroundSvgRect: SCDSvgRect? { self.backgroundSvgElement as? SCDSvgRect }
 
   /// Background svg element of current widget.
-  var backgroundElement: SCDSvgElement? { self.findSvgElementBy(template: "background") }
+  var backgroundSvgElement: SCDSvgElement? { self.findSvgElementBy(template: "background") }
 }
