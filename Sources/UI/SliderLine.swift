@@ -18,11 +18,11 @@ public extension SCDWidgetsSliderLine {
   }
 
   /// SVG element of the background line
-  var backgroundLine: SCDSvgRect? { findSvgElementBy(template: "node-line", as: SCDSvgRect.self) }
+  var backgroundLine: SCDSvgRect? { svgContent?.findSvgElementBy(template: "node-line", as: SCDSvgRect.self) }
 
   /// SVG element of the foreground line
-  var foregroundLine: SCDSvgRect? { findSvgElementBy(template: "node-fill", as: SCDSvgRect.self) }
+  var foregroundLine: SCDSvgRect? { svgContent?.findSvgElementBy(template: "node-fill", as: SCDSvgRect.self) }
 
   /// SVG element of the bullet
-  var bullet: SCDSvgBox? { findSvgElementBy(template: "node-bullet", as: SCDSvgBox.self) }
+  var bullet: SCDSvgBox? { svgContent?.findSvgElementBy(template: "node-bullet", as: SCDSvgBox.self) }
 }

@@ -11,7 +11,9 @@ public extension SCDWidgetsWidget {
   ///   - id: The value of `template-id` attribute of child element.
   /// - Returns: A drawable child element.
   func findSvgElementBy(template id: String) -> SCDSvgElement? {
-    return drawing?.findByAttribute("template-id", value: id)
+    guard let container = self.drawing as? SCDSvgContainerElement else { return nil }
+
+    return container.children.first(where: { $0.attributes["template-id"] == id })
   }
 
   /// Find the child element of svg part of widget with `template-id` attribute equals to `id`
@@ -36,4 +38,7 @@ public extension SCDWidgetsWidget {
 
   /// Background svg element of current widget.
   var backgroundSvgElement: SCDSvgElement? { self.findSvgElementBy(template: "background") }
+
+  /// Content group of current widget.
+  var svgContent: SCDSvgGroup? { self.drawing?.findByAttribute("template-id", value: "content") as? SCDSvgGroup }
 }
