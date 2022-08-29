@@ -1,4 +1,5 @@
 import ScadeKit
+import Foundation
 
 public extension SCDWidgetsDatePicker {
 
