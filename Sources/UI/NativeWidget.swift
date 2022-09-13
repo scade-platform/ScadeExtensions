@@ -1,7 +1,8 @@
 import ScadeKit
 
 #if os(Android)
-import AndroidApp
+import AndroidView
+import Java
 #endif
 
 public extension SCDWidgetsNativeWidget {
@@ -17,8 +18,11 @@ public extension SCDWidgetsNativeWidget {
     return Unmanaged<AnyObject>.fromOpaque(ptr).takeUnretainedValue() as? UIView
   }
 #elseif os(Android)
-  var activity: Activity? {
-    return nil
+  var view: View? {
+    guard let rawPtr: UnsafeRawPointer = self.ptr else { return nil }
+    let rawMutPtr = UnsafeMutableRawPointer(mutating: rawPtr)
+
+    return View.fromJavaObject(rawMutPtr)
   }
 #endif
 
