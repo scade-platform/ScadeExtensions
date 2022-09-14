@@ -18,11 +18,11 @@ public extension SCDWidgetsNativeWidget {
     return Unmanaged<AnyObject>.fromOpaque(ptr).takeUnretainedValue() as? UIView
   }
 #elseif os(Android)
-  var view: ViewGroup? {
+  var view: View? {
     guard let rawPtr: UnsafeRawPointer = self.ptr else { return nil }
     let rawMutPtr = UnsafeMutableRawPointer(mutating: rawPtr)
 
-    return ViewGroup.fromJavaObject(rawMutPtr)
+    return View.fromJavaObject(rawMutPtr)
   }
 #endif
 
