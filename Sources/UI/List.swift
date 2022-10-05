@@ -22,7 +22,7 @@ public extension SCDWidgetsList {
   /// For example, to create provider with String item and
   /// element which containns SCDWidgetsLabel with name "label", use:
   ///
-  ///   list.elementProvider = SCDWidgetsElementProvider { (text: String, element) in
+  ///   list.elementProvider { (text: String, element) in
   ///     element["label", as: SCDWidgetsLabel.self]?.text = text
   ///   }
   ///

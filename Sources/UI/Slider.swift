@@ -7,7 +7,7 @@ public extension SCDWidgetsSlider {
   /// For example, to create provider with String item and
   /// element which contains SCDWidgetsLabel with name "label", use:
   ///
-  ///   slider.elementProvider = SCDWidgetsElementProvider { (text: String, element) in
+  ///   slider.elementProvider { (text: String, element) in
   ///     element["label", as: SCDWidgetsLabel.self]?.text = text
   ///   }
   ///
