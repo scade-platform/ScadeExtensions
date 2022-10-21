@@ -62,6 +62,7 @@ let package = Package(
             name: "ScadeUI",
             dependencies: [
               .product(name: "AndroidApp", package: "Android", condition: .when(platforms: [.android])),
+              .product(name: "AndroidView", package: "Android", condition: .when(platforms: [.android])),
             ],
             path: "Sources/UI",
             swiftSettings: swiftSettings,
