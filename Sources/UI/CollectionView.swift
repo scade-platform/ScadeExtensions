@@ -22,7 +22,7 @@ public extension SCDWidgetsCollectionView {
   ///
   /// For example, to create handler which prints selected item, use:
   ///
-  ///   collection.onItemSelected { event in
+  ///   collection.onClick { event in
   ///     print("on item selected: \(event.item)")
   ///   }
   ///
