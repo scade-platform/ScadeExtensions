@@ -18,7 +18,7 @@ public extension SCDWidgetsCollectionView {
   }
 
 
-  /// Create onItemSelected handler.
+  /// Create onClick handler.
   ///
   /// For example, to create handler which prints selected item, use:
   ///
@@ -28,7 +28,7 @@ public extension SCDWidgetsCollectionView {
   ///
   /// - Parameters:
   ///   - handler: The closure with SCDWidgetsItemEvent parameter. 
-  func onItemSelected(_ handler: @escaping (SCDWidgetsItemEvent) -> Void) {
+  func onClick(_ handler: @escaping (SCDWidgetsItemEvent) -> Void) {
     let eventHandler = SCDWidgetsEventHandler { handler($0 as! SCDWidgetsItemEvent ) }   
     (self.template as? SCDWidgetsContainer)?.onClick.append(eventHandler)
   }

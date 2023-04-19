@@ -29,6 +29,6 @@ public extension SCDWidgetsSlider {
   ///   - handler: The closure with SCDWidgetsItemEvent parameter.
   func onClick(_ handler: @escaping (SCDWidgetsItemEvent) -> Void) {
     let eventHandler = SCDWidgetsEventHandler { handler($0 as! SCDWidgetsItemEvent) }   
-    (self.template as? SCDWidgetsClickable)?.onClick.append(eventHandler)
+    (self.template as? SCDWidgetsContainer)?.onClick.append(eventHandler)
   }
 }
