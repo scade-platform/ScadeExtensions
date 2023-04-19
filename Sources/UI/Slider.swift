@@ -16,4 +16,19 @@ public extension SCDWidgetsSlider {
   func elementProvider<T>(_ clousure: @escaping (T, SCDWidgetsContainer) -> Void) {
     self.elementProvider = SCDWidgetsElementProvider(clousure)
   }
+
+  /// Create onClick handler.
+  ///
+  /// For example, to create handler which prints selected item, use:
+  ///
+  ///   list.onClick { event in
+  ///     print("on item selected: \(event.item)")
+  ///   }
+  ///
+  /// - Parameters:
+  ///   - handler: The closure with SCDWidgetsItemEvent parameter.
+  func onClick(_ handler: @escaping (SCDWidgetsItemEvent) -> Void) {
+    let eventHandler = SCDWidgetsEventHandler { handler($0 as! SCDWidgetsItemEvent) }   
+    (self.template as? SCDWidgetsClickable)?.onClick.append(eventHandler)
+  }
 }
