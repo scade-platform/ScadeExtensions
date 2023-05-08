@@ -31,4 +31,9 @@ public extension SCDWidgetsList {
   func elementProvider<T>(_ clousure: @escaping (T, SCDWidgetsContainer) -> Void) {
     self.elementProvider = SCDWidgetsElementProvider(clousure)
   }
+
+  /// Line separator of List elements.
+  var separator: SCDSvgLine? {
+    self.drawing?.findByAttribute("template-id", value: "separatorLine") as? SCDSvgLine
+  }
 }
