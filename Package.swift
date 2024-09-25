@@ -3,18 +3,6 @@
 import Foundation
 import PackageDescription
 
-let SCADE_SDK = ProcessInfo.processInfo.environment["SCADE_SDK"] ?? ""
-
-let swiftSettings: [SwiftSetting] = [
-    .unsafeFlags(["-F", SCADE_SDK], .when(platforms: [.macOS, .iOS])),
-    .unsafeFlags(["-I", "\(SCADE_SDK)/include"], .when(platforms: [.android]))
-]
-
-
-let linkerSettings: [LinkerSetting] = [
-    .unsafeFlags(["-F", SCADE_SDK], .when(platforms: [.macOS, .iOS]))
-]
-
 
 let package = Package(
     name: "ScadeExtensions",
@@ -34,28 +22,32 @@ let package = Package(
     ],
     
     targets: [
+        .binaryTarget(name: "ScadeKit",
+                      url: "https://github.com/scade-platform/ScadeKit/releases/download/2.4.0/ScadeKit.xcframework.zip",
+                      checksum: "4bef943aa45155d3d25cad539710dec0c489d3ede287f8acdc5d5b4bc0f2d783"),
+
         .target(
             name: "ScadeExtensions",
-            dependencies: [],
-            path: "Sources/Extensions",
-            swiftSettings: swiftSettings,
-            linkerSettings: linkerSettings
+            dependencies: [
+                "ScadeKit"
+            ],
+            path: "Sources/Extensions"
         ),
         
         .target(
             name: "ScadeCore",
-            dependencies: [],
-            path: "Sources/Core",
-            swiftSettings: swiftSettings,
-            linkerSettings: linkerSettings
+            dependencies: [
+                "ScadeKit"
+            ],
+            path: "Sources/Core"
         ),
          
         .target(
             name: "ScadeGraphics",
-            dependencies: [],
-            path: "Sources/Graphics",
-            swiftSettings: swiftSettings,
-            linkerSettings: linkerSettings
+            dependencies: [
+                "ScadeKit"
+            ],
+            path: "Sources/Graphics"
         ),
 
         .target(
@@ -63,10 +55,9 @@ let package = Package(
             dependencies: [
               .product(name: "AndroidApp", package: "Android", condition: .when(platforms: [.android])),
               .product(name: "AndroidView", package: "Android", condition: .when(platforms: [.android])),
+              "ScadeKit"
             ],
-            path: "Sources/UI",
-            swiftSettings: swiftSettings,
-            linkerSettings: linkerSettings
+            path: "Sources/UI"
         )
     ]
 )
